@@ -184,7 +184,6 @@ DELIMITER ;
 CALL Generate650Students();
 
 -- 6) Insert generated rows into actual student table
--- Note: if any student_reg_no already exists (PK conflict), those rows will fail.
 INSERT INTO student (student_reg_no, student_name, gender, date_of_birth, course_code)
 SELECT student_reg_no, student_name, gender, date_of_birth, course_code
 FROM temp_students;
@@ -213,4 +212,3 @@ DROP TEMPORARY TABLE IF EXISTS female_first_names;
 DROP TEMPORARY TABLE IF EXISTS last_names;
 DROP TEMPORARY TABLE IF EXISTS temp_students;
 
--- Done.
